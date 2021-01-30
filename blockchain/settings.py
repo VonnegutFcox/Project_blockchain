@@ -13,7 +13,8 @@ import os
 from pathlib import Path
 import django_heroku
 import dj_database_url
-from decouple import config
+from decouple import config, Csv
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'ueyefpl=zf-qc*mgj*)yzi7qb*lh68fw0m3o272@8_s(&8@u)j'
+SECRET_KEY = config('ueyefpl=zf-qc*mgj*)yzi7qb*lh68fw0m3o272@8_s(&8@u)j')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config(False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config(['*'], cast=Csv())
 
 
 # Application definition
@@ -76,7 +77,7 @@ WSGI_APPLICATION = 'blockchain.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-DATABASE_URL = 'postgres://user_test:123@127.0.0.1:5432/block_test'
+
 
 DATABASES = {
     'default': dj_database_url.config(
