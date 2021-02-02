@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'blockchain.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL')
+        default=config('HEROKU_POSTGRESQL_JADE_URL')
     )
 }
 
