@@ -7,6 +7,8 @@ django-heroku==0.3.1
 django-tables2==2.3.4
 gunicorn==20.0.4
 idna==2.10
+npm==0.1.1
+optional-django==0.1.0
 psycopg2==2.8.6
 psycopg2-binary==2.8.6
 python-decouple==3.4
